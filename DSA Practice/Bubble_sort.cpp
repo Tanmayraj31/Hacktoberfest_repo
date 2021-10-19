@@ -1,33 +1,38 @@
-#include<bits/stdc++.h>
-using namespace std;
-int main(){
-    int n;
-    cout<<"Enter your array length:-\n";
-    cin>>n;
-    int arr[n];
-    cout<<"Enter the array elements:-\n";
-    for(int i=0;i<n;i++){
-        cin>>arr[i];
-    }
-    cout<<"Your unsorted array:-\n";
-    for(int i=0;i<n;i++){
-        cout<<arr[i]<<ends;
-    }
-    cout<<endl;
-    // Sorting process
-    int x=1;
-    while(x<=n-1){
-        for(int i=0;i<n-x;i++){
-            if(arr[i]>arr[i+1]){
-                int temp=arr[i];
-                arr[i]=arr[i+1];
-                arr[i+1]=temp;
-            }
-        }
-        x++;
-    }
-    cout<<"the sorted array:-\n";
-    for(int i=0;i<n;i++){
-        cout<<arr[i]<<ends;
-    }
+#include<stdio.h>
+void bubble_sort(int[],int);
+
+void bubble_sort(int a[],int n)
+{
+	int i,j;
+	int temp;
+	
+	for(i=0;i<n-1;i++)
+	{
+		for(j=0;j<n-i-1;j++)
+		{
+			if (a[j]>a[j+1])
+			{
+				temp=a[j];
+				a[j]=a[j+1];
+				a[j+1]=temp;
+			}
+		}
+	}
+}
+int main()
+{
+	int a[100],i,n;
+	printf("enter size of an array:\n");
+	scanf("%d",&n);
+	printf("enter elemwnts of array:\n");
+	for(i=0;i<n;i++)
+	scanf("%d",&a[i]);
+		
+	
+	bubble_sort(a,n);
+	printf("array after sort:\n");
+	for(i=0;i<n;i++)
+	printf("%d\n",a[i]);
+	return 0;
+	
 }
